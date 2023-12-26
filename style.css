@@ -1,3 +1,7 @@
+* {
+    font-family: Arial, sans-serif;
+}
+
 body {
     background-color: rgb(63, 55, 62);
     margin: 0 !important;
@@ -5,6 +9,11 @@ body {
 	background: linear-gradient(-120deg, rgb(0, 0, 0), rgb(17, 17, 27), rgb(30, 30, 46),#45475a, rgb(30, 30, 46), rgb(17, 17, 27), rgb(0, 0, 0));
 	background-size: 400% 400%;
 	animation: gradient 20s ease infinite;
+}
+
+.container {
+    margin: 5px !important;
+    padding: 5px !important;
 }
 
 @keyframes gradient {
@@ -43,4 +52,9 @@ body {
     margin-left: auto;
     width: 15em;
     margin-right: auto 
+}
+
+.bio {
+    text-align: center;
+    color: white
 }
