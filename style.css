@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(63, 55, 62);
+    margin: 0 !important;
+    padding: 0 !important;
+	background: linear-gradient(-120deg, rgb(0, 0, 0), rgb(17, 17, 27), rgb(30, 30, 46),#45475a, rgb(30, 30, 46), rgb(17, 17, 27), rgb(0, 0, 0));
+	background-size: 400% 400%;
+	animation: gradient 20s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
