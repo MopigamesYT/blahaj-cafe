@@ -41,18 +41,24 @@ body {
     border-radius: 45px;
     margin-left: auto;
     margin-right: auto;
-    animation: colorFade 5s infinite;
+    animation: colorFade 10s infinite;
  }
 
  @keyframes colorFade {
     0% {
       box-shadow: 0px 0px 60px 10px rgb(255, 131, 249);
     }
+    25% {
+      box-shadow: 0px 0px 60px 10px #7fe5ff;
+    }
     50% {
-      box-shadow: 0px 0px 60px 10px #ff009d;
+      box-shadow: 0px 0px 60px 10px #ffffff;
+    }
+    75% {
+        box-shadow: 0px 0px 60px 10px #7fe5ff;
     }
     100% {
-      box-shadow: 0px 0px 60px 10px rgb(255, 131, 249);
+        box-shadow: 0px 0px 60px 10px rgb(255, 131, 249);
     }
   }
 
