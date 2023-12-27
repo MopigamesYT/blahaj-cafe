@@ -20,40 +20,10 @@
     <meta name="og:site_name" content="Blåhaj Café">
     <meta name="og:locale" content="en_US">
     <meta name="og:type" content="website">
+    <meta content="#dbc1ac" data-react-helmet="true" name="theme-color" />
 </head>
 <body>
     <body>
-        <script>
-          const boxesContainer = document.querySelector('.boxes-container');
-      
-          function updateBoxesLayout() {
-            const boxesList = boxesContainer.querySelectorAll('.boxes');
-            const numBoxes = boxesList.length;
-      
-            if (numBoxes === 0) {
-              boxesContainer.style.display = 'none';
-              return;
-            } else if (numBoxes === 1) {
-              boxesContainer.style.display = 'flex';
-              boxesList[0].style.width = '100%';
-              boxesList[0].style.padding = '10px';
-            } else {
-              boxesContainer.style.display = 'grid';
-            boxesContainer.style.gridTemplateColumns = `repeat(${Math.min(3, numBoxes)}, 1fr)`;
-      
-              for (let i = 0; i < numBoxes; i++) {
-                boxesList[i].style.width = '33.3%';
-                boxesList[i].style.padding = '10px';
-              }
-            }
-          }
-      
-          updateBoxesLayout();
-      
-          document.addEventListener('DOMContentLoaded', () => {
-            window.addEventListener('resize', updateBoxesLayout);
-          });
-        </script>
       
         <div class="container
     <div class="container">
