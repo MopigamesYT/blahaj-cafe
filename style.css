@@ -14,11 +14,19 @@ body {
 
 @font-face {
     font-family: 'homemade_appleregular';
-    src: url('font/homemadeapple-webfont.woff2') format('woff2'),
-         url('font/homemadeapple-webfont.woff') format('woff');
+    src: url('font/homemadeapple/homemadeapple-webfont.woff2') format('woff2'),
+         url('font/homemadeapple/homemadeapple-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
+}
+
+@font-face {
+  font-family: '_i_love_glitterregular';
+  src: url('font/iloveglitter/i_love_glitter-webfont.woff2') format('woff2'),
+       url('/font/iloveglitter/i_love_glitter-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .container {
