@@ -153,6 +153,17 @@ body {
     text-align: center;
 }
 
+
+.discord {
+	float:center;
+  height: 400px;
+	width: 100%;
+  max-width: 400px;
+  margin: auto;
+	
+}
+	
+
 .containertrans {
   animation: colorFade 10s infinite;  
 }
