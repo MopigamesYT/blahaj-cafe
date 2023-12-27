@@ -11,6 +11,15 @@ body {
 	animation: gradient 20s ease infinite;
 }
 
+@font-face {
+    font-family: 'homemade_appleregular';
+    src: url('font/homemadeapple-webfont.woff2') format('woff2'),
+         url('font/homemadeapple-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .container {
     margin: 5px !important;
     padding: 5px !important;
@@ -50,7 +59,7 @@ body {
  .pfpdiv {
     display: block;
     margin-left: auto;
-    width: 15em;
+    width: 13.5em;
     margin-right: auto 
 }
 
