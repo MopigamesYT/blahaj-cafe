@@ -71,7 +71,7 @@ body {
 }
 
 .boxes-container {
-  margin: 0px auto;
+  margin: auto;
   text-align: center;
   display: grid;
   grid-gap: 10px;
