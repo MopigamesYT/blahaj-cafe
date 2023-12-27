@@ -31,6 +31,7 @@
           // Access the content and time properties
           let content = data[0].content;
           const time = new Date(data[0].time).toLocaleString();
+          let sender = data[0].sender;
 
           // Cut the message if it exceeds 500 characters
           if (content.length > 500) {
@@ -38,7 +39,7 @@
           }
 
           // Update the HTML content
-          document.querySelector('.news').textContent = `${content} (Posted on ${time})`;
+          document.querySelector('.news').textContent = `${content} (Posted on ${time} by ${sender})`;
         })
         .catch(error => console.error('Error:', error));
     </script>
