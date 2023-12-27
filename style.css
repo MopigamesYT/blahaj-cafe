@@ -125,7 +125,13 @@ body {
     margin: 35px !important;
     padding: 10px !important;
     text-align: center;
+    transition: 0.3s;
   }
+
+.boxes:hover {
+  background-color: #3030419f;
+}
+
   .button {
     background-color: #dbc1ac;
     border-radius: 8px;
