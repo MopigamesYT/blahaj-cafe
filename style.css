@@ -162,7 +162,6 @@ body {
 	width: 100%;
   max-width: 400px;
   margin: auto;
-	
 }
 	
 
@@ -183,13 +182,13 @@ body {
 #blue {
   width:auto;
   height:20px;
-  background:#5a94ff;
+  background:#9fc1ff;
 }
 
 #pink {
   width:auto;
   height:20px;
-  background:#ff5797;
+  background:#ff79ad;
 }
 
 #white {
