@@ -71,20 +71,17 @@ body {
 }
 
 .boxes-container {
-  float: center;
   margin: 0px auto;
-  text-align: center !important;
+  text-align: center;
   display: grid;
-  grid-template-columns: repeat(3, 450px);
-  grid-gap: var(--chakra-space-6);
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   -webkit-box-align: center;
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   justify-content: center;
-  margin-top: var(--chakra-space-8);
-  margin-bottom: var(--chakra-space-32);
 }
 
 .boxes {
