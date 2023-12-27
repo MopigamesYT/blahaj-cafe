@@ -93,8 +93,6 @@ body {
     margin: 10px !important;
   }
 }
-
-/* Additional styling for larger screens if needed */
 @media screen and (min-width: 601px) {
   .boxes-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -154,3 +152,26 @@ body {
 .bio {
     text-align: center;
 }
+
+.containertrans {
+  animation: colorFade 10s infinite;  
+}
+
+#blue {
+  width:auto;
+  height:20px;
+  background:#5a94ff;
+}
+
+#pink {
+  width:auto;
+  height:20px;
+  background:#ff5797;
+}
+
+#white {
+  width:auto;
+  height:20px;
+  background:#ffffff;
+}
+
