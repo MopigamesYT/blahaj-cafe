@@ -107,12 +107,13 @@ body {
 
 
 .boxes {
+    backdrop-filter: blur(40px);
     max-width: 400px;
     box-shadow: 0 0 96px rgba(255,255,255,0.025),0 0 64px rgba(255,255,255,0.025),0 0 32px rgba(255,255,255,0.025);
     border: solid 2px rgba(255,255,255,0.04);
     border-radius: 16px;
     display: inline-block;
-    background-color: #1e1e2e;
+    background-color: #1e1e2e9f;
     margin: 35px !important;
     padding: 10px !important;
     text-align: center;
