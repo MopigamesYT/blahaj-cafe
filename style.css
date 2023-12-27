@@ -3,12 +3,13 @@
 }
 
 body {
-    background-color: rgb(63, 55, 62);
-    margin: 0 !important;
-    padding: 0 !important;
+  background-color: rgb(63, 55, 62);
+  margin: 0 !important;
+  padding: 0 !important;
 	background: linear-gradient(-120deg, rgb(0, 0, 0), rgb(17, 17, 27), rgb(30, 30, 46),#45475a, rgb(30, 30, 46), rgb(17, 17, 27), rgb(0, 0, 0));
 	background-size: 400% 400%;
 	animation: gradient 20s ease infinite;
+  color: #cdd6f4;
 }
 
 @font-face {
@@ -69,15 +70,35 @@ body {
     margin-right: auto 
 }
 
+.boxes-container {
+  float: center;
+  margin: 0px auto;
+  text-align: center !important;
+  display: grid;
+  grid-template-columns: repeat(3, 450px);
+  grid-gap: var(--chakra-space-6);
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin-top: var(--chakra-space-8);
+  margin-bottom: var(--chakra-space-32);
+}
+
 .boxes {
+    max-width: 400px;
     box-shadow: 0 0 96px rgba(255,255,255,0.025),0 0 64px rgba(255,255,255,0.025),0 0 32px rgba(255,255,255,0.025);
     border: solid 2px rgba(255,255,255,0.04);
     border-radius: 16px;
-    padding: var(--chakra-space-6);
     display: inline-block;
+    background-color: #1e1e2e;
+    margin: 35px !important;
+    padding: 10px !important;
+    text-align: center;
   }
 
 .bio {
     text-align: center;
-    color: white
 }
