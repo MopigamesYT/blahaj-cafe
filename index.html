@@ -29,18 +29,31 @@
           let content = data[0].content;
           const time = new Date(data[0].time).toLocaleString();
           let sender = data[0].sender;
+          let pfp = data[0].pfp;
 
           if (content.length > 500) {
             content = content.substring(0, 500) + '...';
           }
           content = content.replace(/@everyone/g, '<span style="font-weight: bold; color: #dbc1ac; text-shadow: 0px 0px 5px ;">@everyone</span>');
-
+          
           document.querySelector('.news').innerHTML = `${content} (Posted on ${time} by ${sender})`;
+          document.querySelector('.pfpnews').src = pfp;
         })
         .catch(error => console.error('Error:', error));
     }
 
     setInterval(updateNews, 3000);
+
+    function toggleTheme() {
+      const checkbox = document.getElementById('checkbox');
+      const body = document.body;
+
+      if (checkbox.checked) {
+        body.classList.add('dark');
+      } else {
+        body.classList.remove('dark');
+      }
+    }
   </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
@@ -80,7 +93,6 @@
       ❆
     </div>
   </div>
-
   <div class="container">
     <div class="pfpdiv">
       <img class="pfp" src="assets/pfp.webp" height="240" alt="Server image">
@@ -99,13 +111,14 @@
         <h1 style="font-family: _i_love_glitterregular;">Server news</h1>
         <h4>Here's the last ping from the server in the announcements channel!</h4>
         <p class="news">Loading...</p>
+        <img src="" style="width: 40px; height: 40px; border-radius: 40px;" class="pfpnews">
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">The server</h1>
         <h4>Welcome to ୨ ☕ Blåhaj Café 🥞୧!!!</h4>
         <p>We are an LGBTQ Friendly, Furry Friendly, and Neurodivergent Friendly server who's main goal is to act as a safe space for many people without the negativity and mod abuse of many online communities.  We have many active channels, fun stickers and emojis, active voice channels, a leveling system, NSFW channels, music bots, and active moderation. Come and take a seat, we hope you like it here</p>
         <h4>• Blåhaj Café Staff</h4>
-        <button class="button" onclick="window.location.href='https://discord.gg/girldick'">Join us!</button>
+        <button class="button" aria-label="Join the discord server" onclick="window.location.href='https://discord.gg/girldick'">Join us!</button>
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Trans rights!</h1>
@@ -144,10 +157,11 @@
         <p>/pos = positive</p>
         <p>/neg = negative</p>
         <form action="https://tone-tag-list.carrd.co/#masterlist" method="get" target="_blank">
-          <button class="button" type="submit">More tone tags</button>
+          <button class="button" aria-label="Open the tone tagsd website" type="submit">More tone tags</button>
         </form>
       </div>
     </div>
   </div>
+  
 </body>
 </html>

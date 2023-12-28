@@ -2,10 +2,12 @@
     font-family: Arial, sans-serif;
 }
 
+
+
 body {
   background-color: rgb(63, 55, 62);
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
 	background: linear-gradient(-120deg, rgb(0, 0, 0), rgb(17, 17, 27), rgb(30, 30, 46),#45475a, rgb(30, 30, 46), rgb(17, 17, 27), rgb(0, 0, 0));
 	background-size: 400% 400%;
 	animation: gradient 20s ease infinite;
@@ -29,10 +31,14 @@ body {
   font-style: normal;
 }
 
+
+
 .container {
-    margin: 5px !important;
-    padding: 5px !important;
+    margin: 5px;
+    padding: 5px;
 }
+
+
 
 @keyframes gradient {
 	0% {
@@ -52,6 +58,10 @@ body {
     margin-right: auto;
     animation: colorFade 10s infinite;
  }
+
+ img[src=""] {
+  display: none;
+}
 
  @keyframes colorFade {
     0% {
@@ -122,14 +132,15 @@ body {
     border-radius: 16px;
     display: inline-block;
     background-color: #1e1e2e9f;
-    margin: 35px !important;
-    padding: 10px !important;
+    margin: 35px;
+    padding: 10px;
     text-align: center;
     transition: 0.3s;
   }
 
 .boxes:hover {
   background-color: #3030419f;
+
 }
 
   .button {
@@ -158,13 +169,7 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: 0px 0px 15px 5px #dbc1ac;
-  }
-  
-  .button:hover,
-  .button:focus {
-    background-color: #ffecdd;
-  }
-
+  }gojofartporn
 .bio {
     text-align: center;
 }
@@ -212,4 +217,9 @@ body {
 }
 
 
-
+.settingspanel {
+  position: fixed !important;
+  vertical-align: middle;
+  height: 100%;
+  position: relative
+}
