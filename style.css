@@ -34,8 +34,8 @@ body {
 
 
 .container {
-    margin: 5px;
-    padding: 5px;
+    margin: 1%;
+    padding: 1%;
 }
 
 
@@ -138,6 +138,7 @@ body {
 
 .boxes:hover {
   background-color: #3030419f;
+  box-shadow: 0 0 96px rgba(92, 76, 76, 0.025),0 0 64px rgba(255,255,255,0.025),0 0 32px rgba(255,255,255,0.025);
 
 }
 
