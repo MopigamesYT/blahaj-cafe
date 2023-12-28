@@ -24,24 +24,29 @@
   </head>
   <body>
     <script>
-      // Fetch the JSON file
-      fetch('http://localhost:3122/news.json')
-        .then(response => response.json()) // Parse it as JSON
-        .then(data => {
-          // Access the content and time properties
-          let content = data[0].content;
-          const time = new Date(data[0].time).toLocaleString();
-          let sender = data[0].sender;
+      function updateNews() {
+        // Fetch the JSON file
+        fetch('https://generalsphericaloctagon.mopigames20.repl.co/news.json')
+          .then(response => response.json()) // Parse it as JSON
+          .then(data => {
+            // Access the content and time properties
+            let content = data[0].content;
+            const time = new Date(data[0].time).toLocaleString();
+            let sender = data[0].sender;
 
-          // Cut the message if it exceeds 500 characters
-          if (content.length > 500) {
-            content = content.substring(0, 500) + '...';
-          }
+            // Cut the message if it exceeds 500 characters
+            if (content.length > 500) {
+              content = content.substring(0, 500) + '...';
+            }
 
-          // Update the HTML content
-          document.querySelector('.news').textContent = `${content} (Posted on ${time} by ${sender})`;
-        })
-        .catch(error => console.error('Error:', error));
+            // Update the HTML content
+            document.querySelector('.news').textContent = `${content} (Posted on ${time} by ${sender})`;
+          })
+          .catch(error => console.error('Error:', error));
+      }
+
+      // Update the news every 5 seconds
+      setInterval(updateNews, 5000);
     </script>
       <div class="snowflakes" aria-hidden="true">
           <div class="snowflake">
