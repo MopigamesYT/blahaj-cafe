@@ -55,6 +55,10 @@
         .catch(error => console.error('Error:', error));
     }
 
+    iframedoc = document.querySelector(".discord").contentDocument;
+    iframedoc.querySelector(".widgetHeader-1cAbIw").style.color = "#ffffff";
+
+
     setInterval(updateNews, 3000);
   </script>
   <div class="snowflakes" aria-hidden="true">
@@ -109,7 +113,7 @@
     <div class="boxes-container">
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Join us!</h1>
-        <iframe class="discord" src="https://discord.com/widget?id=1027016571773788310&theme=dark"
+        <iframe class="discord" id="discord" src="https://discord.com/widget?id=1027016571773788310&theme=dark"
           allowtransparency="true" frameborder="0"
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
           aria-label="Discord server"></iframe>
@@ -174,6 +178,11 @@
         <form action="https://tone-tag-list.carrd.co/#masterlist" method="get" target="_blank">
           <button class="button" aria-label="Open the tone tags website" type="submit">More tone tags</button>
         </form>
+      </div>
+      <div class="boxes">
+        <h1 style="font-family: _i_love_glitterregular;">Appeal a ban</h1>
+        <p>Fill out this form to appeal a ban:</p>
+        <p>you dont lol (button will be added later im lazy :3)</p>
       </div>
     </div>
   </div>

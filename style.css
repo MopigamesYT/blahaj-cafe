@@ -194,6 +194,12 @@ img[src=""] {
   width: 100%;
   max-width: 400px;
   margin: auto;
+  border-radius: 16px;
+  background-color: #1e1e2e9f;
+}
+
+#discord-widget .widget-header {
+  background-color: #1e1e2e9f;
 }
 
 .containertrans {
