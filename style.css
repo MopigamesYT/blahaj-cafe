@@ -166,11 +166,17 @@ body {
     -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: 0px 0px 6px 5px #dbc1ac;
-  }gojofartporn
+  }
 .bio {
     text-align: center;
 }
 
+
+.boxes img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
 .discord {
 	float:center;
