@@ -33,8 +33,9 @@
           if (content.length > 500) {
             content = content.substring(0, 500) + '...';
           }
+          content = content.replace(/@everyone/g, '<span style="font-weight: bold; color: #dbc1ac;">@everyone</span>');
 
-          document.querySelector('.news').textContent = `${content} (Posted on ${time} by ${sender})`;
+          document.querySelector('.news').innerHTML = `${content} (Posted on ${time} by ${sender})`;
         })
         .catch(error => console.error('Error:', error));
     }
