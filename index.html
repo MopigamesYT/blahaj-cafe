@@ -22,10 +22,18 @@
 </head>
 <body>
   <script>
+    let timeoutId;
+
     function updateNews() {
+      timeoutId = setTimeout(() => {
+        document.querySelector('.news').innerHTML = "It looks like it's taking a long time. Try refreshing the page or contact <b>mopii.</b> on discord to fix the issue!";
+        clearTimeout(timeoutId);
+      }, 5000);
+
       fetch('https://generalsphericaloctagon.mopigames20.repl.co/news.json')
         .then(response => response.json())
         .then(data => {
+          clearTimeout(timeoutId);
           let content = data[0].content;
           const time = new Date(data[0].time).toLocaleString();
           let sender = data[0].sender;
@@ -35,7 +43,7 @@
             content = content.substring(0, 500) + '...';
           }
           content = content.replace(/@everyone/g, '<span style="font-weight: bold; color: #dbc1ac; text-shadow: 0px 0px 5px ;">@everyone</span>');
-          
+
           document.querySelector('.news').innerHTML = `${content} (Posted on ${time} by ${sender})`;
           document.querySelector('.pfpnews').src = pfp;
         })
@@ -43,17 +51,6 @@
     }
 
     setInterval(updateNews, 3000);
-
-    function toggleTheme() {
-      const checkbox = document.getElementById('checkbox');
-      const body = document.body;
-
-      if (checkbox.checked) {
-        body.classList.add('dark');
-      } else {
-        body.classList.remove('dark');
-      }
-    }
   </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
