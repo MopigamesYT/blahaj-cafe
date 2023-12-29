@@ -27,18 +27,9 @@
 
 <body>
   <script>
-    let timeoutId;
-
-    function updateNews() {
-      timeoutId = setTimeout(() => {
-        document.querySelector('.news').innerHTML = "It looks like it's taking a long time. Try refreshing the page or contact <b>mopii.</b> on discord to fix the issue!";
-        clearTimeout(timeoutId);
-      }, 5000);
-
-      fetch('https://generalsphericaloctagon.mopigames20.repl.co/news.json')
+        fetch('https://generalsphericaloctagon.mopigames20.repl.co/news.json')
         .then(response => response.json())
         .then(data => {
-          clearTimeout(timeoutId);
           let content = data[0].content;
           const time = new Date(data[0].time).toLocaleString();
           let sender = data[0].sender;
@@ -53,10 +44,6 @@
           document.querySelector('.pfpnews').src = pfp;
         })
         .catch(error => console.error('Error:', error));
-    }
-
-
-    setInterval(updateNews, 3000);
   </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
@@ -178,7 +165,7 @@
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Appeal a ban</h1>
         <p>Fill out this form to appeal a ban. Please not that this form is not guaranteed to get you unbanned.:</p>
-        <iframe src="https://onm6yd715wq.typeform.com/to/asi5xX9E" style="border:none;" width="100%" height="600px"
+        <iframe src="https://onm6yd715wq.typeform.com/to/asi5xX9E" loading="lazy" style="border:none;" width="100%" height="600px"
           frameborder="10" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </div>
