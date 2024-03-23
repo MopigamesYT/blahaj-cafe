@@ -27,7 +27,7 @@
 
 <body>
   <script>
-        fetch('http://62.171.160.80:3122/news.json')
+        fetch('https://62.171.160.80:3122/news.json')
         .then(response => response.json())
         .then(data => {
           let content = data[0].content;
