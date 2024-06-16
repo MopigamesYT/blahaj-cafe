@@ -27,7 +27,7 @@
 
 <body>
   <script>
-        fetch('http://158.178.193.9:3122/news.json')
+        fetch('http://api.blahaj.cafe:3122/news.json')
         .then(response => response.json())
         .then(data => {
           let content = data[0].content;
