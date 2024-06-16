@@ -165,12 +165,21 @@
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Appeal a ban</h1>
         <p>Fill out this form to appeal a ban. Please not that this form is not guaranteed to get you unbanned.:</p>
-        <iframe src="https://onm6yd715wq.typeform.com/to/asi5xX9E" loading="lazy" style="border:none;" width="100%" height="600px"
+        <iframe id="appeal-iframe" src="https://onm6yd715wq.typeform.com/to/asi5xX9E" loading="lazy" style="border:none;" width="100%" height="600px"
           frameborder="10" marginheight="0" marginwidth="0">Loading…</iframe>
       </div>
     </div>
   </div>
-
+  <script>
+    // Prevent the iframe from capturing focus and scrolling the page to it
+    const iframe = document.getElementById('appeal-iframe');
+    iframe.onload = () => {
+      iframe.contentWindow.addEventListener('focus', (event) => {
+        event.preventDefault();
+        window.scrollTo(0, 0);
+      });
+    };
+  </script>
 </body>
 
 </html>
