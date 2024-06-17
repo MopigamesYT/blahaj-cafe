@@ -51,10 +51,13 @@
           let serverStatusHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1>`;
           if (data.online) {
             serverStatusHTML += `<h4>The server is online! ${data.players.online} players are online right now!</h4>`;
+            serverStatusHTML += `<p>Server version: ${data.version.name}</p>`; // Added line for server version
           } else {
             serverStatusHTML += `<h4>The server is offline right now. Check back later!</h4>`;
           }
           serverStatusHTML += `<p>${data.description ? data.description : 'No description available.'}</p>`;
+          // Added line for server IP
+          serverStatusHTML += `<p>Server IP: <span style="color: #dbc1ac !important;"><bold>mc.blahaj.cafe:20436</bold></span></p>`;
           document.querySelector('.minecraft').innerHTML = serverStatusHTML;
         })
   </script>
