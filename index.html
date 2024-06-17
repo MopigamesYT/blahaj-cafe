@@ -48,49 +48,52 @@
         fetch('https://eu.mc-api.net/v3/server/ping/mc.blahaj.cafe:20436')
         .then(response => response.json())
         .then(data => {
+          let serverStatusHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1>`;
           if (data.online) {
-            document.querySelector('.boxes:nth-child(4)').innerHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1><h4>The server is online! ${data.players.online} players are online right now!</h4>`;
+            serverStatusHTML += `<h4>The server is online! ${data.players.online} players are online right now!</h4>`;
           } else {
-            document.querySelector('.boxes:nth-child(4)').innerHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1><h4>The server is offline right now. Check back later!</h4>`;
+            serverStatusHTML += `<h4>The server is offline right now. Check back later!</h4>`;
           }
+          serverStatusHTML += `<p>${data.description ? data.description : 'No description available.'}</p>`;
+          document.querySelector('.minecraft').innerHTML = serverStatusHTML;
         })
   </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
-      ❅
+      🏳️‍🌈
     </div>
     <div class="snowflake">
-      ❆
+      🏳️‍⚧️
     </div>
     <div class="snowflake">
-      ❅
+      🏳️‍🌈
     </div>
     <div class="snowflake">
-      ❆
+      🏳️‍⚧️
     </div>
     <div class="snowflake">
-      ❅
+      🏳️‍🌈
     </div>
     <div class="snowflake">
-      ❆
+      🏳️‍⚧️
     </div>
     <div class="snowflake">
-      ❅
+      🏳️‍🌈
     </div>
     <div class="snowflake">
-      ❆
+      🏳️‍⚧️
     </div>
     <div class="snowflake">
-      ❅
+      🏳️‍🌈
     </div>
     <div class="snowflake">
-      ❆
+      🏳️‍⚧️
     </div>
     <div class="snowflake">
-      ❅
+      🏳️‍🌈
     </div>
     <div class="snowflake">
-      ❆
+      🏳️‍⚧️
     </div>
   </div>
   <div class="container">
@@ -139,9 +142,7 @@
           <div id="blue" style="border-radius: 0px 0px 16px 16px;"></div>
         </div>
       </div>
-      <div class="boxes">
-        <h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1>
-
+      <div class="boxes minecraft">
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">The staff team</h1>
