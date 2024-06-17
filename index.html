@@ -45,7 +45,7 @@
         })
         .catch(error => console.error('Error:', error));
 
-        fetch('https://eu.mc-api.net/v3/server/ping/mc.blahaj.cafe:20436')
+        fetch('https://eu.mc-api.net/v3/server/ping/mc.blahaj.cafe')
         .then(response => response.json())
         .then(data => {
           let serverStatusHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1>`;
