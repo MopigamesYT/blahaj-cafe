@@ -27,44 +27,49 @@
 
 <body>
   <script>
-        fetch('https://api.blahaj.cafe/news.json')
+    document.addEventListener('DOMContentLoaded', function() {
+      fetch('https://api.blahaj.cafe/news.json')
         .then(response => response.json())
         .then(data => {
           let content = data[0].content;
           const time = new Date(data[0].time).toLocaleString();
           let sender = data[0].sender;
           let pfp = data[0].pfp;
-
+    
           if (content.length > 500) {
             content = content.substring(0, 500) + '...';
           }
           content = content.replace(/@everyone/g, '<span style="font-weight: bold; color: #dbc1ac; text-shadow: 0px 0px 5px ;">@everyone</span>');
-
+    
           document.querySelector('.news').innerHTML = `${content} (Posted on ${time} by ${sender})`;
           document.querySelector('.pfpnews').src = pfp;
         })
         .catch(error => console.error('Error:', error));
-
-        setInterval(() => {
-  fetch('https://eu.mc-api.net/v3/server/ping/mc.blahaj.cafe')
-    .then(response => response.json())
-    .then(data => {
-      let serverStatusHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1>`;
-      if (data.online) {
-        serverStatusHTML += `<h4>The server is online! ${data.players.online}/${data.players.max} players are online right now!</h4>`;
-        serverStatusHTML += `<p>Server version: ${data.version.name}</p>`;
-        let playerNames = data.players.sample ? data.players.sample.map(player => player.name).join(', ') : 'No players online.';
-        serverStatusHTML += `<p>Online players: ${playerNames}</p>`;
-      } else {
-        serverStatusHTML += `<h4>The server is offline right now. Check back later!</h4>`;
-      }
-      serverStatusHTML += `<p>${data.description ? data.description : 'No description available.'}</p>`;
-      serverStatusHTML += `<p>Server IP: <span style="color: #dbc1ac !important;"><bold>mc.blahaj.cafe</bold></span></p>`;
-      serverStatusHTML += `<img src="${data.favicon}" alt="Server Favicon" style="width: 32px; height: 32px;" onerror="this.style.display='none';">`;
-      document.querySelector('.minecraft').innerHTML = serverStatusHTML;
-    })
-}, 10000);
-  </script>
+    
+      // Initial loading message for Minecraft server status
+      document.querySelector('.minecraft').innerHTML = 'Loading server status...';
+    
+      setInterval(() => {
+        fetch('https://eu.mc-api.net/v3/server/ping/mc.blahaj.cafe')
+          .then(response => response.json())
+          .then(data => {
+            let serverStatusHTML = `<h1 style="font-family: _i_love_glitterregular;">Minecraft server</h1>`;
+            if (data.online) {
+              serverStatusHTML += `<h4>The server is online! ${data.players.online}/${data.players.max} players are online right now!</h4>`;
+              serverStatusHTML += `<p>Server version: ${data.version.name}</p>`;
+              let playerNames = data.players.sample ? data.players.sample.map(player => player.name).join(', ') : 'No players online.';
+              serverStatusHTML += `<p>Online players: ${playerNames}</p>`;
+            } else {
+              serverStatusHTML += `<h4>The server is offline right now. Check back later!</h4>`;
+            }
+            serverStatusHTML += `<p>${data.description ? data.description : 'No description available.'}</p>`;
+            serverStatusHTML += `<p>Server IP: <span style="color: #dbc1ac !important;"><bold>mc.blahaj.cafe</bold></span></p>`;
+            serverStatusHTML += `<img src="${data.favicon}" alt="Server Favicon" style="width: 32px; height: 32px;" onerror="this.style.display='none';">`;
+            document.querySelector('.minecraft').innerHTML = serverStatusHTML;
+          });
+      }, 10000);
+    });
+    </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
       🏳️‍🌈
@@ -150,6 +155,7 @@
         </div>
       </div>
       <div class="boxes minecraft">
+        Loading minecraft server status...
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Bluemap</h1>
