@@ -57,7 +57,7 @@
             if (data.online) {
               serverStatusHTML += `<h4>The server is online! ${data.players.online}/${data.players.max} players are online right now!</h4>`;
               serverStatusHTML += `<p>Server version: ${data.version.name}</p>`;
-              let playerNames = data.players.sample ? data.players.sample.map(player => player.name).join(', ') : 'No players online.';
+              let playerNames = data.players.sample ? data.players.sample.map(player => player.name).sort((a, b) => a.localeCompare(b)).join(', ') : 'No players online.';
               serverStatusHTML += `<p>Online players: ${playerNames}</p>`;
             } else {
               serverStatusHTML += `<h4>The server is offline right now. Check back later!</h4>`;
