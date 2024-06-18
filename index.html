@@ -160,8 +160,8 @@
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Bluemap</h1>
         <p>See the full map here: <a href="https://bluemap.blahaj.cafe/">https://bluemap.blahaj.cafe/</a></p>
-        <iframe src="https://bluemap.blahaj.cafe/" loading="lazy" style="border:none;" width="100%" height="400px"
-          frameborder="10" marginheight="0" marginwidth="0" border-radius: 40px; scrolling="no" tabindex="-1">Loading…</iframe>
+        <iframe src="https://bluemap.blahaj.cafe/" loading="lazy" style="border:none; border-radius: 10px;" width="100%" height="400px"
+          frameborder="10" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1">Loading…</iframe>
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">The staff team</h1>
@@ -198,10 +198,34 @@
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Appeal a ban</h1>
-        <p>Fill out this form to appeal a ban. Please not that this form is not guaranteed to get you unbanned.:</p>
-        <iframe src="https://onm6yd715wq.typeform.com/to/asi5xX9E" loading="lazy" style="border:none;" width="100%" height="600px"
-          frameborder="10" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1">Loading…</iframe>
+        <p>Fill out this form to appeal a ban. Please note that this form is not guaranteed to get you unbanned:</p>
+        <button id="load-appeal-form" class="button">Load Appeal Form</button>
+        <div id="appeal-form-container"></div>
       </div>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // ... (existing code) ...
+      
+          // Add this new code at the end of the DOMContentLoaded event listener
+          const loadFormButton = document.getElementById('load-appeal-form');
+          const formContainer = document.getElementById('appeal-form-container');
+      
+          loadFormButton.addEventListener('click', function() {
+            formContainer.innerHTML = `
+              <iframe src="https://onm6yd715wq.typeform.com/to/asi5xX9E" 
+                      loading="lazy" 
+                      style="border:none; border-radius: 10px;" 
+                      width="100%" 
+                      height="600px"
+                      frameborder="10" 
+                      marginheight="0" 
+                      marginwidth="0">Loading…</iframe>
+            `;
+            loadFormButton.style.display = 'none';
+          });
+        });
+      </script>
     </div>
   </div>
 
