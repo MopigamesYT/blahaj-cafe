@@ -27,7 +27,7 @@
 
 <body>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       fetch('https://api.blahaj.cafe/news.json')
         .then(response => response.json())
         .then(data => {
@@ -35,21 +35,24 @@
           const time = new Date(data[0].time).toLocaleString();
           let sender = data[0].sender;
           let pfp = data[0].pfp;
-    
+
           if (content.length > 500) {
             content = content.substring(0, 500) + '...';
           }
           content = content.replace(/@everyone/g, '<span style="font-weight: bold; color: #dbc1ac; text-shadow: 0px 0px 5px ;">@everyone</span>');
-    
+
           document.querySelector('.news').innerHTML = `${content} (Posted on ${time} by ${sender})`;
           document.querySelector('.pfpnews').src = pfp;
         })
         .catch(error => console.error('Error:', error));
-    
+
       // Initial loading message for Minecraft server status
       document.querySelector('.minecraft').innerHTML = 'Loading server status...';
-    
-      setInterval(() => {
+
+      let serverFavicon = ''; // Variable to store the server favicon URL
+      let faviconElement = null; // Variable to store the favicon img element
+
+      function updateServerStatus() {
         fetch('https://eu.mc-api.net/v3/server/ping/mc.blahaj.cafe')
           .then(response => response.json())
           .then(data => {
@@ -64,12 +67,38 @@
             }
             serverStatusHTML += `<p>${data.description ? data.description : 'No description available.'}</p>`;
             serverStatusHTML += `<p>Server IP: <span style="color: #dbc1ac !important;"><bold>mc.blahaj.cafe</bold></span></p>`;
-            serverStatusHTML += `<img src="${data.favicon}" alt="Server Favicon" style="width: 32px; height: 32px;" onerror="this.style.display='none';">`;
+
+            // Update the content
             document.querySelector('.minecraft').innerHTML = serverStatusHTML;
+
+            // Add or update the favicon
+            if (!faviconElement) {
+              if (data.favicon) {
+                serverFavicon = data.favicon;
+                faviconElement = document.createElement('img');
+                faviconElement.src = serverFavicon;
+                faviconElement.alt = "Server Favicon";
+                faviconElement.style = "width: 32px; height: 32px;";
+                faviconElement.onerror = function () { this.style.display = 'none'; };
+                document.querySelector('.minecraft').appendChild(faviconElement);
+              }
+            }
+          })
+          .catch(error => {
+            console.error('Error fetching Minecraft server status:', error);
+            document.querySelector('.minecraft').innerHTML = 'Error loading server status. Please try again later.';
           });
-      }, 10000);
+      }
+
+      // Initial update
+      updateServerStatus();
+
+      // Update every 10 seconds
+      setInterval(updateServerStatus, 500);
+
+      // ... (rest of your code) ...
     });
-    </script>
+  </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
       🏳️‍🌈
@@ -131,7 +160,8 @@
         <h1 style="font-family: _i_love_glitterregular;">Server news</h1>
         <h4>Here's the last ping from the server in the announcements channel!</h4>
         <p class="news" aria-live="polite">Loading...</p>
-        <img src="" style="width: 40px; height: 40px; border-radius: 40px;" class="pfpnews" alt="News sender profile picture">
+        <img src="" style="width: 40px; height: 40px; border-radius: 40px;" class="pfpnews"
+          alt="News sender profile picture">
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">The server</h1>
@@ -160,8 +190,9 @@
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">Bluemap</h1>
         <p>See the full map here: <a href="https://bluemap.blahaj.cafe/">https://bluemap.blahaj.cafe/</a></p>
-        <iframe src="https://bluemap.blahaj.cafe/" loading="lazy" style="border:none; border-radius: 10px;" width="100%" height="400px"
-          frameborder="10" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1">Loading…</iframe>
+        <iframe src="https://bluemap.blahaj.cafe/" loading="lazy" style="border:none; border-radius: 10px;" width="100%"
+          height="400px" frameborder="10" marginheight="0" marginwidth="0" scrolling="no"
+          tabindex="-1">Loading…</iframe>
       </div>
       <div class="boxes">
         <h1 style="font-family: _i_love_glitterregular;">The staff team</h1>
@@ -202,16 +233,16 @@
         <button id="load-appeal-form" class="button">Load Appeal Form</button>
         <div id="appeal-form-container"></div>
       </div>
-      
+
       <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
           // ... (existing code) ...
-      
+
           // Add this new code at the end of the DOMContentLoaded event listener
           const loadFormButton = document.getElementById('load-appeal-form');
           const formContainer = document.getElementById('appeal-form-container');
-      
-          loadFormButton.addEventListener('click', function() {
+
+          loadFormButton.addEventListener('click', function () {
             formContainer.innerHTML = `
               <iframe src="https://onm6yd715wq.typeform.com/to/asi5xX9E" 
                       loading="lazy" 
