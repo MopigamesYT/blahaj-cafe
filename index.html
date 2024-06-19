@@ -97,21 +97,35 @@
       setInterval(updateServerStatus, 500);
 
       // ... (rest of your code) ...
+
+      // Get all the boxes
+      const boxes = document.querySelectorAll('.boxes');
+
+      // Add a click event listener to each box
+      boxes.forEach(box => {
+        box.addEventListener('click', function () {
+          const boxId = this.id;
+          const newUrl = `${window.location.origin}${window.location.pathname}#${boxId}`;
+
+          // Update the URL without causing a page refresh
+          window.history.replaceState(null, null, newUrl);
+        });
+      });
     });
 
     window.addEventListener('hashchange', function () {
-  const hash = window.location.hash.slice(1); // Remove the '#' from the hash
-  const targetElement = document.getElementById(hash);
+      const hash = window.location.hash.slice(1); // Remove the '#' from the hash
+      const targetElement = document.getElementById(hash);
 
-  if (targetElement) {
-    targetElement.classList.add('highlight');
+      if (targetElement) {
+        targetElement.classList.add('highlight');
 
-    // Remove the highlight class after a delay (e.g., 2 seconds)
-    setTimeout(function () {
-      targetElement.classList.remove('highlight');
-    }, 2000);
-  }
-});
+        // Remove the highlight class after a delay (e.g., 2 seconds)
+        setTimeout(function () {
+          targetElement.classList.remove('highlight');
+        }, 2000);
+      }
+    });
   </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
