@@ -74,7 +74,7 @@
             // Add or update the favicon
             if (!faviconElement) {
               if (data.favicon) {
-                serverFavicon = data.favicon;
+                serverFavicon = data.favicon; 
                 faviconElement = document.createElement('img');
                 faviconElement.src = serverFavicon;
                 faviconElement.alt = "Server Favicon";
@@ -98,6 +98,20 @@
 
       // ... (rest of your code) ...
     });
+
+    window.addEventListener('hashchange', function () {
+  const hash = window.location.hash.slice(1); // Remove the '#' from the hash
+  const targetElement = document.getElementById(hash);
+
+  if (targetElement) {
+    targetElement.classList.add('highlight');
+
+    // Remove the highlight class after a delay (e.g., 2 seconds)
+    setTimeout(function () {
+      targetElement.classList.remove('highlight');
+    }, 2000);
+  }
+});
   </script>
   <div class="snowflakes" aria-hidden="true">
     <div class="snowflake">
@@ -149,21 +163,21 @@
     </div>
     <br>
     <div class="boxes-container">
-      <div class="boxes">
+      <div class="boxes" id="join-us">
         <h1 style="font-family: _i_love_glitterregular;">Join us!</h1>
         <iframe class="discord" id="discord" src="https://discord.com/widget?id=1027016571773788310&theme=dark"
           allowtransparency="true" frameborder="0"
           sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
           aria-label="Discord server"></iframe>
       </div>
-      <div class="boxes">
+      <div class="boxes" id="server-news">
         <h1 style="font-family: _i_love_glitterregular;">Server news</h1>
         <h4>Here's the last ping from the server in the announcements channel!</h4>
         <p class="news" aria-live="polite">Loading...</p>
         <img src="" style="width: 40px; height: 40px; border-radius: 40px;" class="pfpnews"
           alt="News sender profile picture">
       </div>
-      <div class="boxes">
+      <div class="boxes" id="the-server">
         <h1 style="font-family: _i_love_glitterregular;">The server</h1>
         <h4>Welcome to ୨ ☕ Blåhaj Café 🥞୧!!!</h4>
         <p>We are an LGBTQ Friendly, Furry Friendly, and Neurodivergent Friendly server who's main goal is to act as a
@@ -174,7 +188,7 @@
         <button class="button" aria-label="Join the discord server"
           onclick="window.location.href='https://discord.gg/57N7gZXDKx'">Join us!</button>
       </div>
-      <div class="boxes">
+      <div class="boxes" id="trans-rights">
         <h1 style="font-family: _i_love_glitterregular;">Trans rights!</h1>
         <div class="containertrans">
           <div id="blue" style="border-radius: 16px 16px 0px 0px;"></div>
@@ -184,7 +198,7 @@
           <div id="blue" style="border-radius: 0px 0px 16px 16px;"></div>
         </div>
       </div>
-      <div class="boxes minecraft">
+      <div class="boxes minecraft" id="minecraft">
         Loading minecraft server status...
       </div>
       <div class="boxes">
@@ -194,7 +208,7 @@
           height="400px" frameborder="10" marginheight="0" marginwidth="0" scrolling="no"
           tabindex="-1">Loading…</iframe>
       </div>
-      <div class="boxes">
+      <div class="boxes" id="the-staff-team">
         <h1 style="font-family: _i_love_glitterregular;">The staff team</h1>
         <h4>Here is each role on our staff team, and how they are here to help you!</h4>
         <p>~The Founder~</p>
@@ -209,10 +223,10 @@
         <p>Entry level staff who sift through chat to make sure people follow rules, they do not have permissions to ban
           people so contact higher level staff for ban concerns</p>
       </div>
-      <div class="boxes">
+      <div class="boxes" id="cute-gif">
         <img src="assets/cute.gif" style="border-radius: 16px;" alt="cute gif :3">
       </div>
-      <div class="boxes">
+      <div class="boxes" id="tone-tags">
         <h1 style="font-family: _i_love_glitterregular;">Tone tags</h1>
         <p>Here's a non exhaustive list of tone tags:</p>
         <p>/j = joking</p>
@@ -227,7 +241,7 @@
           <button class="button" aria-label="Open the tone tags website" type="submit">More tone tags</button>
         </form>
       </div>
-      <div class="boxes">
+      <div class="boxes" id="appeal-a-ban">
         <h1 style="font-family: _i_love_glitterregular;">Appeal a ban</h1>
         <p>Fill out this form to appeal a ban. Please note that this form is not guaranteed to get you unbanned:</p>
         <button id="load-appeal-form" class="button">Load Appeal Form</button>
